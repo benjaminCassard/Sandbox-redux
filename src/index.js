@@ -59,12 +59,10 @@ window.moins = () => {
 };
 
 window.inc = () => {
-  const val = 1;
-  myStore.dispatch(change(val));
+  myStore.dispatch(change(1));
 };
 window.dec = () => {
-  const val = -1;
-  myStore.dispatch(change(val));
+  myStore.dispatch(change(-1));
 };
 
 const render = () => {
