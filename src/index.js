@@ -25,24 +25,13 @@ const reducerSaisieUtilisateur = (oldState = initialState, action) => {
       return newState;
     }
     case "INCREMENT_CPT": {
-      let newState = Object.assign({}, oldState, {
-        cpt: oldState.cpt + 1
-      });
-      return newState;
-      // return {...oldstate, { cpt: action.newVal}}
+      return { ...oldState, cpt: oldState.cpt + 1 };
     }
     case "DECREMENT_CPT": {
-      let newState = Object.assign({}, oldState, {
-        cpt: oldState.cpt - 1
-      });
-      return newState;
-      // return { ...oldState, { cpt: oldState.cpt - 1}}
+      return { ...oldState, cpt: oldState.cpt - 1 };
     }
     case "CHANGE": {
-      let newState = Object.assign({}, oldState, {
-        cpt: oldState.cpt + action.newVal
-      });
-      return newState;
+      return { ...oldState, cpt: oldState.cpt + action.newVal };
     }
     default: {
       return oldState;
@@ -66,14 +55,13 @@ window.dec = () => {
 };
 
 const render = () => {
-  const cpt = myStore.getState().cpt;
-  let vue = `compteur : <input type="text" size="3" value=${cpt} />
+  let vue = `compteur : <input type="text" size="3" value=${
+    myStore.getState().cpt
+  } />
   <button onClick="plus()">+</button>
   <button onClick="moins()">-</button>
   <button onClick="inc()">?+?</button>
   <button onClick="dec()">?-?</button>`;
-
-  const functions = ``;
 
   document.getElementById("root").innerHTML =
     "monChamp1 : " + myStore.getState().monChamp1;
